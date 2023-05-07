@@ -1,0 +1,52 @@
+<%- include("./partials/head", {pageTitle: "Carrito", stylesheet: "productCart.css"}) %>
+
+
+<%- include("partials/header",{logueado: logueado})%>
+
+    
+    <section class="products">
+
+        <%if(product){  %> 
+          
+        <article>
+            <div class="product1">
+                <img src="/images/<%= product.image %>" alt="">
+                <div class="info-podruct">
+                    <div class="name"><%= product.name %></div>
+                    <div class="description"><%= product.description %> </div>
+                    <div class="price">$<%= product.price %></div>
+                    <div class="agregar-quitar">
+                        <button id="reset" class="reset"><i class="fa-solid fa-minus"></i></button>
+                        <input type="number" id="cantidad" class="cantidad" value="2">
+                        <button id="add" class="add"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="delete">
+                    <div class="trash">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        </section>
+        <div class="card shadow">
+            <p>TOTAL</p>
+            <p>$15.000</p>
+        </div>
+
+        <div class="box-buy">
+            <button class=“button-buy” type="submit" value="ENVIAR">COMPRAR</button>
+        </div>
+    
+        
+        <% } %>
+
+        <%if(!product){  %> 
+            <h2 class="mensajeError">No tienes productos en el carrito</h2>
+        <% } %>
+
+  
+
+    <%- include("./partials/footer") %>
+

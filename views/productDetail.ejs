@@ -1,0 +1,64 @@
+<%- include("./partials/head", {pageTitle: "Detalle Producto", stylesheet: "productDetail.css"}) %>
+
+<%- include("partials/header",{logueado: logueado})%>
+<script src="/js/productDetailJava.js" defer></script>
+
+    <main>
+
+
+<body>
+  <form action="/products/productCart/<%= product.id %>"  method="POST" enctype="multipart/form-data">
+              <div>
+                <h1>Detalle del Producto</h1>
+              </div>
+              <div class="container">
+                <div class="imgBox">
+                  <picture>
+                    <img src="/images/<%= product.image %> " alt="Product image">
+                  </picture>
+                </div>
+              </div>
+
+            <div class="contenedor-descripcion">
+
+                <h2 class="titulo-producto"><%= product.name %> </h2>
+                <p class="precio">Precio: $<%= product.price  %> </p>
+                <p class="talle">Talle: <%= size.name %> </p>
+                <p class="descripcion">Descripcion: <%=product.description  %> </p>
+                <p class="descripcion">Color: <%=color.name  %> </p>
+                <p class="descripcion">Condicion: <%=product.condition  %> </p>
+                <p class="descripcion">Genero: <%=category.genre  %> </p>
+                <p class="descripcion">Categoria: <%=subCategory.name  %> </p>
+                
+
+                <div class="caja-boton">
+                    <button type="submit">Agregar al carrito</button>
+                </div>
+    </form>    
+                <div class="contenedorEnviosPagos">
+                    <div class="envios">
+                    <p> 
+                        Envíos a todo el país
+                    </p>
+                    <img src="/images/envios.png" alt="fotoEnvios" style= width:300px height:100px>
+                    </div>
+                    
+                    <div class="pagos">  
+                    <p>
+                        Formas de Pago
+                    </p>
+                    <img  src="/images/pagos.png" alt="fotoPagos" style= width:300px height:100px>
+                    </div>
+                </div>
+        
+                </div>
+
+                
+            </div>
+
+        </div>
+    </main>
+
+    <%- include("./partials/footer") %>
+
+

@@ -1,0 +1,51 @@
+<%- include("./partials/head", {pageTitle: "Formulario Producto" , stylesheet: "productForm.css" }) %>
+
+
+    <%- include("partials/header",{logueado: logueado})%>
+        <script src="/js/productForm.js" defer></script>
+
+        <div class="contenedorGeneral">
+            
+            <form action="/products/productEdit/<%= product.id %> " method="POST" enctype="multipart/form-data">
+                <div class="createProduct">
+                    <div class="titleForm">
+                        <div class="imageForm">
+                            <img src="" alt="">
+                            <label>EDITÁ TU PRODUCTO</label>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <label for="name">Nombre Del Producto</label>
+                        <input type="text" name="name" id="name" placeholder= "nuevo nombre" required value="<%= product.name %>">
+                    </div>
+
+                    <div class="price">
+                        <p class="price">Precio</p>
+                        <input type="number" name="price" id="price" placeholder="$" required value="<%= product.price %>">
+                    </div>
+                    <br>
+
+                    <div class="description">
+                        <p class="description">Descripción</p>
+                        <input type="text" name="description" required value="<%= product.description %>">
+                    </div>
+                    <br>
+                   
+
+                    <div class="imageinput">
+                        <label for="imageinput">Imagen del Producto</label>
+                        <input type="file" name="imageInput" id="imageinput" accept="image/*"  required></div>
+                        <img src="/images/<%= product.image %> " alt="">
+                        
+
+                    <div class="enviar-limpiar">
+                        <button class=“botonEnviar” type="submit" value="ENVIAR">ACTUALIZAR</button>
+                        <br>
+                        <button class=“botonLimpiar” type="reset" value="LIMPIAR">LIMPIAR</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+        <%- include("./partials/footer") %>
